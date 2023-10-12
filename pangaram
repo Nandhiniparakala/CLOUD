@@ -1,0 +1,32 @@
+import java.util.HashSet;
+
+public class PangramChecker {
+    public static void main(String[] args) {
+        String input = "The quick brown fox jumps over the lazy dog";
+        boolean isPangram = isPangram(input);
+        
+        if (isPangram) {
+            System.out.println("The input sentence is a pangram.");
+        } else {
+            System.out.println("The input sentence is not a pangram.");
+        }
+    }
+
+    public static boolean isPangram(String input) {
+        // Convert the input to lowercase to ignore case differences
+        input = input.toLowerCase();
+
+        // Use a HashSet to store unique alphabets from the input
+        HashSet<Character> alphabetSet = new HashSet<>();
+
+        // Iterate through the input and add alphabets to the HashSet
+        for (char c : input.toCharArray()) {
+            if (Character.isLetter(c)) {
+                alphabetSet.add(c);
+            }
+        }
+
+        // If the size of the HashSet is 26, it contains all alphabets from A to Z
+        return alphabetSet.size() == 26;
+    }
+}
