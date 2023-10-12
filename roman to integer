@@ -1,0 +1,36 @@
+import java.util.HashMap;
+
+public class RomanToInteger {
+    public static void main(String[] args) {
+        // Define a HashMap to store the Roman numerals and their corresponding values
+        HashMap<Character, Integer> romanNumerals = new HashMap<>();
+        romanNumerals.put('I', 1);
+        romanNumerals.put('V', 5);
+        romanNumerals.put('X', 10);
+        romanNumerals.put('L', 50);
+        romanNumerals.put('C', 100);
+        romanNumerals.put('D', 500);
+        romanNumerals.put('M', 1000);
+
+    }
+
+    public static int romanToInteger(String s, HashMap<Character, Integer> romanNumerals) {
+        int result = 0;
+        int prevValue = 0;
+
+        // Traverse the Roman numeral string from right to left
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char numeral = s.charAt(i);
+            int value = romanNumerals.get(numeral);
+
+            // If the current numeral is smaller than the previous numeral, subtract it
+            if (value < prevValue) {
+                result -= value;
+            } else {
+                result += value;
+            }
+            prevValue = value;
+        }
+        return result;
+    }
+}
