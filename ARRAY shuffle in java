@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create the initial array
+        ArrayList<Integer> initialArray = new ArrayList<>();
+        initialArray.add(1);
+        initialArray.add(2);
+        initialArray.add(3);
+        initialArray.add(4);
+        initialArray.add(5);
+        initialArray.add(6);
+        initialArray.add(7);
+
+        // Shuffle the array
+        Collections.shuffle(initialArray);
+
+        System.out.println(initialArray);
+    }
+}
